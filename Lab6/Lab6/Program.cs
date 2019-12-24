@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,33 +10,34 @@ namespace Lab6
     {
         static void Main(string[] args)
         {
-            int a, b;
+            double a;
 
             List<double> numbers = new List<double>() { };
 
 
             Console.WriteLine("Введіть розмір");
-
-
             int.TryParse(Console.ReadLine(), out int n);
             for (int i = 0; i < n; i++)
             {
-                int.TryParse(Console.ReadLine(), out a);            
+                Console.Write("{0}: ", i+1);
+                double.TryParse(Console.ReadLine(), out a);
                 numbers.Add(a);
             }
 
             double[] arr = numbers.ToArray();
-             
+
             Console.WriteLine("Введіть перевірочне число");
-            b = Convert.ToDouble(Console.ReadLine());
-            Console.Write("З перевірочним числом співпадають змінні з індексом: "); 
-            foreach (int i in arr) 
+
+            double.TryParse(Console.ReadLine(), out double b);
+
+            Console.Write("З перевірочним числом співпадають змінні з індексом: ");
+            for (int i = 0; i < n; i++)
             {
-               if (arr[i] == b)
-               { 
-                  Console.Write("{0}, ", i+1);
-               }
-            }         
+                if (arr[i] == b)
+                {
+                    Console.Write("{0}, ", i + 1);
+                }
+            }
         }
     }
 }
