@@ -10,8 +10,7 @@ namespace Lab6
     {
         static void Main(string[] args)
         {
-            int a;
-            int[] count = new int[2];
+            int a, b;
 
             List<double> numbers = new List<double>() { };
 
@@ -22,31 +21,22 @@ namespace Lab6
             int.TryParse(Console.ReadLine(), out int n);
             for (int i = 0; i < n; i++)
             {
-                do
-                {
-
-                    int.TryParse(Console.ReadLine(), out a);
-
-                } while (a != 0 && a != 1);
-
+                int.TryParse(Console.ReadLine(), out a);            
                 numbers.Add(a);
-                count[a]++;
             }
 
             double[] arr = numbers.ToArray();
-
+             
+            Console.WriteLine("Введіть перевірочне число");
+            b = Convert.ToDouble(Console.ReadLine());
+            Console.Write("З перевірочним числом співпадають змінні з індексом: "); 
             foreach (int i in arr) 
             {
-                Console.Write("{0} ", i);
-            }
-
-            Console.WriteLine("\nКількість 0 та 1");
-
-            foreach (int i in count) 
-            {
-                Console.Write("{0} ", i);
-            }
-
+               if (arr[i] == b)
+               { 
+                  Console.Write("{0}, ", i+1);
+               }
+            }         
         }
     }
 }
